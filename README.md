@@ -8,74 +8,64 @@ The client is clearly requesting a NotebookLM-style AI search experience, which 
 
 How RAG works?
 
-1. Data Sources
------------------
+1. ### Data Sources
 - Database (SQL / NoSQL)
 - Files (CSV, XLSX, PDF, Docs)
 - APIs / Web
-      ↓
+      
 
-2. Data Ingestion (ETL)
------------------
+2. ### Data Ingestion (ETL)
 - Extract raw data
 - Clean & normalize text
 - Optional: merge relevant fields
-      ↓
+      
 
-3. Chunking / Preprocessing
------------------
+3. ### Chunking / Preprocessing
 - Split long documents/text into smaller chunks
 - Add metadata (e.g., author, date, category, location)
 - Optional: remove stopwords / noise
-      ↓
+      
 
-4. Embedding
------------------
+4. ### Embedding
 - Convert text chunks → vector embeddings
 - Models: OpenAI, Cohere, Vertex AI, Bedrock, etc.
-      ↓
+      
 
-5. Vector Store / Index
------------------
+5. ### Vector Store / Index
 - Store embeddings + metadata in a vector DB
 - Vector DB options: Pinecone, Weaviate, FAISS, Milvus, ChromaDB
 - Build indexes for fast similarity search
-      ↓
+      
 
-6. Query / Retrieval
------------------
+6. ### Query / Retrieval
 - User submits query (text)
 - Convert query → embedding
 - Search vector DB for top-k similar chunks
-      ↓
+      
 
-7. Optional Filtering
------------------
+7. ### Optional Filtering
 - Use metadata filters for precision
   e.g., location = Dhaka, type = remote, category = engineering
-      ↓
+      
 
-8. Optional Reranking
------------------
+8. ### Optional Reranking
 - Use a model to re-rank top results for better relevance
 - Models: Cohere Rerank, OpenAI GPT, custom scoring
-      ↓
+      
 
-9. Optional LLM / Summarization
------------------
+9. ### Optional LLM / Summarization
 - Combine retrieved chunks
 - Generate summary, structured output, or direct answer
 - Makes results human-readable
-      ↓
+    
 
-10. Return Results
------------------
+10. ### Return Results
 - Show final answer / recommended items / jobs / insights
 - Can include confidence score, highlights, or metadata
 
 
 ---
-#### For this project the pipeline should be like this:
+## For this project the pipeline should be like this:
 
 ---
 ### Step-1(Data preprocessing):
