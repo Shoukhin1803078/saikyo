@@ -158,10 +158,9 @@ Return Top Jobs
 | -------- | ---- | ----- | ------------- | ------- |
 | FAISS    | Yes   | No    | No             | No       |
 | ChromaDB | Yes    | No     | No             | No       |
-| Pinecone | Yes    | Yes     | Limited            | Yes       |
+| Pinecone | Yes    | Yes     | Yes            | Yes       |
 | Weaviate | No   | Yes     | Yes             | Yes       |
 | Milvus   | No    | Yes     | Limited            | Limit      |
-
 
 
 ### Vector DB Costing:
