@@ -1,5 +1,4 @@
 # saikyo
-# saikyo
 
 
 
@@ -9,77 +8,78 @@ The client is clearly requesting a NotebookLM-style AI search experience, which 
 
 How RAG works?
 
-1️⃣ Data Sources
+1. Data Sources
 -----------------
 - Database (SQL / NoSQL)
 - Files (CSV, XLSX, PDF, Docs)
 - APIs / Web
       ↓
 
-2️⃣ Data Ingestion (ETL)
+2. Data Ingestion (ETL)
 -----------------
 - Extract raw data
 - Clean & normalize text
 - Optional: merge relevant fields
       ↓
 
-3️⃣ Chunking / Preprocessing
+3. Chunking / Preprocessing
 -----------------
 - Split long documents/text into smaller chunks
 - Add metadata (e.g., author, date, category, location)
 - Optional: remove stopwords / noise
       ↓
 
-4️⃣ Embedding
+4. Embedding
 -----------------
 - Convert text chunks → vector embeddings
 - Models: OpenAI, Cohere, Vertex AI, Bedrock, etc.
       ↓
 
-5️⃣ Vector Store / Index
+5. Vector Store / Index
 -----------------
 - Store embeddings + metadata in a vector DB
 - Vector DB options: Pinecone, Weaviate, FAISS, Milvus, ChromaDB
 - Build indexes for fast similarity search
       ↓
 
-6️⃣ Query / Retrieval
+6. Query / Retrieval
 -----------------
 - User submits query (text)
 - Convert query → embedding
 - Search vector DB for top-k similar chunks
       ↓
 
-7️⃣ Optional Filtering
+7. Optional Filtering
 -----------------
 - Use metadata filters for precision
   e.g., location = Dhaka, type = remote, category = engineering
       ↓
 
-8️⃣ Optional Reranking
+8. Optional Reranking
 -----------------
 - Use a model to re-rank top results for better relevance
 - Models: Cohere Rerank, OpenAI GPT, custom scoring
       ↓
 
-9️⃣ Optional LLM / Summarization
+9. Optional LLM / Summarization
 -----------------
 - Combine retrieved chunks
 - Generate summary, structured output, or direct answer
 - Makes results human-readable
       ↓
 
-🔟 Return Results
+10. Return Results
 -----------------
 - Show final answer / recommended items / jobs / insights
 - Can include confidence score, highlights, or metadata
 
 
+---
+#### For this project the pipeline should be like this:
 
-For this project the pipeline should be like this:
-
-
-Step-1(Data preprocessing):
+---
+### Step-1(Data preprocessing):
+```
 DB (Job Table)
       ↓  Export
 XLSX File (title, description, location, type, etc.)
@@ -89,7 +89,12 @@ Read XLSX → Pandas DataFrame
 - Clean text
 - Combine columns for embedding (title + description + type + location)
 
-Step-2(RAG pipeline build):
+```
+
+
+### Step-2(RAG pipeline build):
+---
+```
 - Optional: chunk long descriptions
       ↓  Embedding
 - Call embedding model (OpenAI, Cohere, Vertex AI, Bedrock)
@@ -100,10 +105,13 @@ Step-2(RAG pipeline build):
       ↓  Indexing & Ready
 - All jobs are now searchable by vector similarity
 - Metadata filters available for refined search
+```
 
 
-Step-3(Inferencing):
 
+### Step-3(Inferencing):
+---
+```
 User Query
      ↓
 Embed Query
@@ -116,10 +124,10 @@ Optional LLM Answer / Summary
      ↓
 Return Top Jobs
 
+```
 
 
-
-Embedding Models with cost :
+# Embedding Models with cost :
 
 
 | Provider / Model                  | Quality              | Cost                           | Best For                              |
@@ -135,7 +143,7 @@ Embedding Models with cost :
 
 
 
-Opeai Embedding model cost:
+### Opeai Embedding model cost:
 
 | Model                      | Typical Use                                       | Cost (est)                                             |
 | -------------------------- | ------------------------------------------------- | ------------------------------------------------------ |
@@ -147,7 +155,7 @@ Opeai Embedding model cost:
 
 
 
-Vector DB:
+# Vector DB:
 
 | DB       | Easy | Scale | Hybrid Search | Managed |
 | -------- | ---- | ----- | ------------- | ------- |
@@ -159,7 +167,7 @@ Vector DB:
 
 
 
-Vector DB Costing:
+### Vector DB Costing:
 
 | DB           | Easy | Scale | Hybrid Search | Managed | Cost Estimate (Monthly)                    | Best For                              |
 | ------------ | ---- | ----- | ------------- | ------- | ------------------------------------------ | ------------------------------------- |
@@ -172,12 +180,12 @@ Vector DB Costing:
 
 
 
-FAISS & ChromaDB: free to use, just pay for hosting (CPU/GPU).
-Pinecone & Weaviate: managed, easier to scale, cost depends on vectors & query volume.
-Milvus: great for massive datasets, but setup can be complex and infra-heavy.
+**FAISS & ChromaDB:** Free to use, just pay for hosting (CPU/GPU).
+**Pinecone & Weaviate:** Managed, easier to scale, cost depends on vectors & query volume.
+**Milvus:** Great for massive datasets, but setup can be complex and infra-heavy.
 
 
-RAG Third-party services:
+## RAG Third-party services:
 
 - AWS OpenSearch:
     - managed search with vector + keyword combined (hybrid)
@@ -188,7 +196,7 @@ RAG Third-party services:
     - semantic/hybrid search and RAG
 
 
-Opensource Vector DB:
+## Opensource Vector DB:
 - ChromaDB : 
     - lightweight
     - self hosted
