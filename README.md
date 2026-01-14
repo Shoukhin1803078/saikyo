@@ -7,6 +7,7 @@ The client is clearly requesting a NotebookLM-style AI search experience, which 
 
 
 How RAG works?
+<img width="1400" height="818" alt="RAG" src="https://github.com/user-attachments/assets/ca15f22f-32cf-4de5-a89c-ae9b5ab81194" />
 
 1. ### Data Sources
 - Database (SQL / NoSQL)
