@@ -72,10 +72,13 @@ How RAG works?
 ```
 DB (Job Table)
       ↓  Export
+      ↓
 XLSX File (title, description, location, type, etc.)
       ↓  Load into Python / ETL script
+      ↓
 Read XLSX → Pandas DataFrame
       ↓  Preprocessing
+      ↓
 - Clean text
 - Combine columns for embedding (title + description + type + location)
 
@@ -87,12 +90,15 @@ Read XLSX → Pandas DataFrame
 ```
 - Optional: chunk long descriptions
       ↓  Embedding
+      ↓
 - Call embedding model (OpenAI, Cohere, Vertex AI, Bedrock)
 - Get vector representation for each job
       ↓  Vector DB Ingestion
+      ↓
 - Store vectors in vector DB (Weaviate / Pinecone / FAISS / Milvus)
 - Save metadata (location, type, job_id) for filtering
       ↓  Indexing & Ready
+      ↓
 - All jobs are now searchable by vector similarity
 - Metadata filters available for refined search
 ```
