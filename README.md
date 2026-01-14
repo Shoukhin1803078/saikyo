@@ -169,7 +169,7 @@ Return Top Jobs
 | ------------ | ---- | ----- | ------------- | ------- | ------------------------------------------ | ------------------------------------- |
 | **FAISS**    | Yes  | No    | No            | No      | Free (self-hosted, infra cost $20–$200) | Local RAG / experiments               |
 | **ChromaDB** | Yes  | No    | No            | No      | Free (self-hosted, infra cost $15–$120) | Small RAG, prototypes                 |
-| **Pinecone** | Yes  | Yes   | Limited       | Yes     | $50–$800+                               | Production RAG, scalable apps         |
+| **Pinecone** | Yes  | Yes   | Yes       | Yes     | $50–$800+                               | Production RAG, scalable apps         |
 | **Weaviate** | No   | Yes   | Yes           | Yes     | $25–$400+                               | Hybrid search / semantic jobs search  |
 | **Milvus**   | No   | Yes   | Limited       | Limited | $50–$600+                               | Enterprise-scale RAG / large datasets |
 
@@ -209,6 +209,7 @@ Return Top Jobs
     - Fully managed (zero ops)
     - Scales insanely well
     - High availability
+    - Metadata filtering
 
 - Weaviate:
     - Native hybrid search (vector + keyword)
